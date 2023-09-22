@@ -58,6 +58,14 @@ th {
   padding: 10px;
 }
 
+.mw-400 {
+  max-width: 400px;
+}
+
+.mw-300 {
+  max-width: 300px;
+}
+
 .text-center {
   text-align: center;
 }

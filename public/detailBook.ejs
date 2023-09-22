@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
     <title>Details Book</title>
   </head>
   <body>
@@ -14,26 +14,26 @@
           <tr>
             <th>Judul Buku</th>
             <td>:</td>
-            <td>Buku Pemrograman Python</td>
+            <td><%= book.bookTitle %></td>
           </tr>
           <tr>
             <th>Penulis</th>
             <td>:</td>
-            <td>Budi Raharjo</td>
+            <td class="mw-400"><%= book.bookWriter %></td>
           </tr>
           <tr>
             <th>Penerbit</th>
             <td>:</td>
-            <td>Modula</td>
+            <td><%= book.bookPublisher %></td>
           </tr>
           <tr>
             <th>Tahun Terbit</th>
             <td>:</td>
-            <td>2017</td>
+            <td><%= book.publicationYear %></td>
           </tr>
         </table>
         <div class="button">
-          <a href="index.html" class="btn btn-info">Kembali</a>
+          <a href="/" class="btn btn-info">Kembali</a>
         </div>
       </div>
     </div>
