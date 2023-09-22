@@ -29,50 +29,46 @@ app.set("view engine", "ejs");
 
 // Get root (/)
 // root = https://localhost:[port]
+// Show data
 app.get("/", (req, res) => {
-  // Menampilkan list
   db.query("select * from books", (err, rows) => {
     if (err) throw err;
     res.render("index.ejs", { books: rows });
   });
 });
 
+// Get addbook page
 app.get("/addbook", (req, res) => {
-  // Menampilkan list
   db.query("select * from books", (err, rows) => {
     if (err) throw err;
     res.render("addBook.ejs", { books: rows });
   });
 });
 
+// Add data
 app.post("/", (req, res) => {
-  // Membuat data
-  //   console.log(req.body);
   const { bookTitle, bookWriter, bookPublisher, publicationYear } = req.body;
   const sql = `insert into books values(NULL, '${bookTitle}', '${bookWriter}', '${bookPublisher}', '${publicationYear}')`;
   db.query(sql, (err, rows) => {
     if (err) throw err;
-    // res.render("addBook.ejs");
     res.redirect("/");
   });
 });
 
+// Get detail data
 app.get("/:id/detailbook", (req, res) => {
-  // Menampilkan detail
   const { id } = req.params;
   const sql = `select * from books where id=${id}`;
-  // const kontak = dummyData.find((item) => item.id === parseInt(id));
   db.query(sql, (err, row) => {
     if (err) throw err;
-    // console.log(row);
 
     const book = row[0];
     res.render("detailBook.ejs", { book });
   });
 });
 
+// Get editbook page
 app.get("/:id/editbook", (req, res) => {
-  // Mengubah data
   const { id } = req.params;
   const sql = `select * from books where id=${id}`;
   db.query(sql, (err, row) => {
@@ -83,8 +79,8 @@ app.get("/:id/editbook", (req, res) => {
   });
 });
 
+// Edit data
 app.post("/:id/editbook", (req, res) => {
-  // Menyimpan data
   const { id } = req.params;
   const { bookTitle, bookWriter, bookPublisher, publicationYear } = req.body;
   const sql = `update books set bookTitle='${bookTitle}', bookWriter='${bookWriter}', bookPublisher='${bookPublisher}', publicationYear='${publicationYear}' where id=${id}`;
@@ -94,8 +90,8 @@ app.post("/:id/editbook", (req, res) => {
   });
 });
 
+// Delete data
 app.get("/:id/delete", (req, res) => {
-  // Menghapus data
   const { id } = req.params;
   const sql = `delete from books where id=${id}`;
   db.query(sql, (err, rows) => {
