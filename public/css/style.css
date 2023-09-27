@@ -58,6 +58,12 @@ th {
   padding: 10px;
 }
 
+/* tr {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+} */
+
 .mw-400 {
   max-width: 400px;
 }
@@ -117,7 +123,11 @@ a {
 }
 
 .m-lr10 {
-  margin: 0 10px;
+  margin: 10px;
+}
+
+.lh-50 {
+  line-height: 50px;
 }
 
 /* Form */
@@ -125,8 +135,8 @@ label {
   display: block;
 }
 
-.add-data {
-  width: 25%;
+.add-edit-data {
+  width: 75%;
   display: grid;
   row-gap: 2em;
 }
@@ -150,4 +160,17 @@ input {
 .detail-book {
   display: grid;
   row-gap: 1.5em;
+}
+
+/* Responsive */
+@media screen and (min-width: 700px) {
+  .add-edit-data {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .add-edit-data {
+    width: 25%;
+  }
 }
